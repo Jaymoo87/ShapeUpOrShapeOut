@@ -2,4 +2,24 @@
   height: 600px;
   width: 600px;
   background-color: aquamarine;
+  margin-left: 20px;
+}
+
+#buttonContainer {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+#shapeValuesContainer {
+  position: relative;
+  justify-content: end;
+  height: 200px;
+  width: 150px;
+}
+
+.shape {
+  opacity: 40%;
+  position: absolute;
 }

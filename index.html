@@ -9,29 +9,38 @@
     <title>Document</title>
   </head>
   <body>
-  
+  <div id="buttonContainer">
    <form action="">
+       <button type="button"  value="submit" id="rectangleButton">Insert Rectangle</button>
     <input type="text" placeholder="width" ></input>
     <input type= "text" placeholder="height" ></input>
-        <button type="button"  value="submit" id="rectangleButton">Insert Rectangle</button>
     </form>
     <form action="">
-    <input type= "text" placeholder="side length"></input>
         <button type="button"  value="submit" id="squareButton">Insert Square</button>
+    <input type= "text" placeholder="side length"></input>
     </form>
 </form>
 <form action="">
-<input type= "text" placeholder="radius"></input>
     <button type="button"  value="submit" id="circleButton">Insert Circle</button>
+<input type= "text" placeholder="radius"></input>
 </form>
 </form>
 <form action="">
-<input type= "text" placeholder="height"></input>
     <button type="button"  value="submit" id="triangleButton">Insert Square</button>
+<input type= "text" placeholder="height"></input>
 </form>
-
+</div>
 <div id="shapeContainer"></div>
-    <script
+<div id="shapeValuesContainer">
+    <ul id="shapeValueList">
+
+    </ul>
+</div>
+    
+
+
+
+<script
       src="https://code.jquery.com/jquery-3.6.1.min.js"
       integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
       crossorigin="anonymous"
