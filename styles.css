@@ -1,12 +1,19 @@
+body {
+  background-color: rgba(161, 106, 42, 0.795);
+}
+
 #shapeContainer {
+  display: inline-block;
   position: relative;
   overflow: hidden;
   height: 600px;
   width: 600px;
   background-color: aquamarine;
   margin-left: 20px;
-  border: brown;
+  border: rgba(168, 10, 10, 0.5);
   border-style: solid;
+}
+#daddycontainer {
 }
 
 #buttonContainer {
@@ -14,10 +21,26 @@
   justify-content: space-evenly;
   margin-top: 20px;
   margin-bottom: 20px;
+  background-color: rgba(58, 171, 199, 0.479);
+  padding: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  border-color: rgb(138, 100, 124);
+  border-style: solid;
+  border-top-right-radius: 6em;
+  border-bottom-right-radius: 6em;
+}
+input {
+  border-bottom-right-radius: 1em;
+  border-top-right-radius: 1em;
+}
+button {
+  border-bottom-right-radius: 1em;
+  border-top-right-radius: 1em;
+  background-color: rgba(137, 43, 226, 0.322);
 }
 
 #shapeValuesContainer {
-  position: absolute;
   height: 600px;
   width: 150px;
 }
@@ -38,5 +61,8 @@
 }
 .rectangle {
   position: absolute;
-  background-color: rgba(167, 190, 33, 0.5);
+  background-color: rgba(236, 123, 89, 0.5);
+}
+.triangle {
+  position: absolute;
 }

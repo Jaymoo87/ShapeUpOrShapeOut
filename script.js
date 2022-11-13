@@ -12,6 +12,7 @@ let radiusInput = document.getElementById("radiusInput");
 let sideLengthInput = document.getElementById("squareInput");
 let rectangleHeightInput = document.getElementById("rectangleHeightInput");
 let rectangleWidthInput = document.getElementById("rectangleWidthInput");
+let triangleHeightInput = document.getElementById("triangleHeightInput");
 // define and establish maxSize variable
 let maxSize = 600;
 //creates an array to put the generated shapes into
@@ -34,16 +35,17 @@ class Shape {
       alert(
         "That's quite the girth! let's try a little less, it's just not gonna fit."
       );
-      // if it doesn't meet the conditions that violate the max size
+      // if it doesn't meet the conditions that violate the max size this code will run.
     } else {
-      //this.div = $(`<div class="${this.constructor.name}"></div>`);
+      // creates a div that for the created shape to go into
       this.div = document.createElement("div");
+      // sets the values for the size of each shape
       this.div.style.height = `${this.height}px`;
       this.div.style.width = `${this.width}px`;
+      // slaps that div right in the shape container where it belongs
       shapeContainer.appendChild(this.div);
       console.log(this);
-
-      arrayOfShapes.push(this);
+      // call the randomLocation() to place each shape div randomly in the shapeContainer.
       this.randomLocation();
     }
   }
@@ -69,6 +71,8 @@ class Triangle extends Shape {
   constructor(height, width) {
     super(height, width);
     this.div.classList.add("triangle");
+    this.div.style.borderBottom = `${this.width}px solid rgb(54, 151, 78, 0.5)`;
+    this.div.style.borderRight = `${this.height}px solid transparent`;
   }
 }
 
@@ -76,6 +80,8 @@ class Rectangle extends Shape {
   constructor(height, width) {
     super(height, width);
     if (this.height === this.width) {
+      rectangleHeightInput.value = "";
+      rectangleWidthInput.value = "";
       alert("YOU KNOW THIS IS A SQUARE!");
     } else {
       this.div.classList.add("rectangle");
@@ -106,6 +112,8 @@ squareButton.addEventListener("click", () => {
 rectangleButton.addEventListener("click", () => {
   new Rectangle(rectangleHeightInput.value, rectangleWidthInput.value);
 });
-
+triangleButton.addEventListener("click", () => {
+  new Triangle(triangleHeightInput.value, triangleHeightInput.value);
+});
 //});
 //randomColor;
