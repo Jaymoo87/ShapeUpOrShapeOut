@@ -13,8 +13,6 @@ body {
   border: rgba(168, 10, 10, 0.5);
   border-style: solid;
 }
-#daddycontainer {
-}
 
 #buttonContainer {
   display: flex;
@@ -40,11 +38,18 @@ button {
   background-color: rgba(137, 43, 226, 0.322);
 }
 
-#shapeValuesContainer {
-  height: 600px;
-  width: 150px;
+#infoContainer {
+  position: absolute;
+  width: 300px;
+  left: 60em;
+  bottom: 25em;
+  background-color: aquamarine;
+  padding: 20px;
+  border: rgba(168, 10, 10, 0.5);
+  border-style: solid;
+  border-bottom-left-radius: 4em;
+  border-bottom-right-radius: 4em;
 }
-
 /* .shape {
   opacity: 40%;
   position: absolute;
@@ -52,16 +57,16 @@ button {
 
 .circle {
   position: absolute;
-  background-color: rgba(224, 163, 32, 0.5);
+  background-color: rgba(204, 117, 200, 0.5);
   border-radius: 100%;
 }
 .square {
   position: absolute;
-  background-color: rgba(21, 110, 151, 0.5);
+  background-color: rgba(236, 106, 106, 0.5);
 }
 .rectangle {
   position: absolute;
-  background-color: rgba(236, 123, 89, 0.5);
+  background-color: rgba(56, 212, 134, 0.5);
 }
 .triangle {
   position: absolute;

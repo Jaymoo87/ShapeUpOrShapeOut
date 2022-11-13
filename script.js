@@ -7,20 +7,28 @@ let circleButton = document.getElementById("circleButton");
 let squareButton = document.getElementById("squareButton");
 let triangleButton = document.getElementById("triangleButton");
 let rectangleButton = document.getElementById("rectangleButton");
-
+// variable for all of the shape input boxes
 let radiusInput = document.getElementById("radiusInput");
 let sideLengthInput = document.getElementById("squareInput");
 let rectangleHeightInput = document.getElementById("rectangleHeightInput");
 let rectangleWidthInput = document.getElementById("rectangleWidthInput");
 let triangleHeightInput = document.getElementById("triangleHeightInput");
+// variable for the data input for each shape generated
+let shapeData = document.getElementById("shapeData");
+let heightData = document.getElementById("heightData");
+let widthData = document.getElementById("widthData");
+let radiusData = document.getElementById("radiusData");
+let areaData = document.getElementById("areaData");
+let perimeterData = document.getElementById("perimeterData");
 // define and establish maxSize variable
 let maxSize = 600;
 //creates an array to put the generated shapes into
 let arrayOfShapes = [];
+// random value function... very useful if any random values need to be generated.
+// This time it will be used for coordinate positions.
 let randomValue = (min, max) => Math.floor(Math.random() * (max - min) + min);
 
 //parent class Shape with the shared rules for all child classes.
-
 class Shape {
   constructor(height, width) {
     this.height = height;
@@ -47,6 +55,35 @@ class Shape {
       console.log(this);
       // call the randomLocation() to place each shape div randomly in the shapeContainer.
       this.randomLocation();
+      this.div.addEventListener("click", () => {
+        shapeData.innerText = `${this.div.className}`;
+        heightData.innerText = `${this.height} Pixels`;
+        widthData.innerText = `${this.width} Pixels`;
+        if (this.div.className === "circle") {
+          radiusData.innerText = `${this.radius} Pixels`;
+          areaData.innerText = `${Math.floor(
+            Math.PI * (`${this.radius}` * `${this.radius}`)
+          )} Pixels`;
+          perimeterData.innerText = `${Math.floor(
+            2 * Math.PI * this.radius
+          )} Pixels`;
+        }
+        if (this.div.className === "triangle") {
+          areaData.innerText = `${Math.floor(
+            (this.width * this.width) / 2
+          )} Pixels`;
+
+          perimeterData.innerText = Math.floor(
+            2 * `${this.width}` + Math.sqrt(2) * `${this.width}`
+          );
+        } else {
+          areaData.innerText = `${this.width}` * `${this.height}`;
+          perimeterData.innerText = `${this.width}` * 2 + `${this.height}` * 2;
+        }
+      });
+      this.div.addEventListener("dblclick", () => {
+        this.div.remove();
+      });
     }
   }
   //creates a random location to place the new shape div
@@ -60,7 +97,6 @@ class Shape {
 class Circle extends Shape {
   constructor(height) {
     super(height, height);
-    //this.height = height;
     this.width = height;
     this.radius = height / 2;
     this.div.classList.add("circle");
@@ -71,7 +107,7 @@ class Triangle extends Shape {
   constructor(height, width) {
     super(height, width);
     this.div.classList.add("triangle");
-    this.div.style.borderBottom = `${this.width}px solid rgb(54, 151, 78, 0.5)`;
+    this.div.style.borderBottom = `${this.width}px solid rgb(199, 197, 102, 0.4)`;
     this.div.style.borderRight = `${this.height}px solid transparent`;
   }
 }
@@ -93,12 +129,7 @@ class Square extends Shape {
     super(height, height);
     this.width = height;
     this.div.classList.add("square");
-    //this.side = side;
   }
-  // addSquare() {
-  //   this.div(this.height, this.height);
-  //   //
-  // }
 }
 
 circleButton.addEventListener("click", () => {
@@ -115,5 +146,3 @@ rectangleButton.addEventListener("click", () => {
 triangleButton.addEventListener("click", () => {
   new Triangle(triangleHeightInput.value, triangleHeightInput.value);
 });
-//});
-//randomColor;
