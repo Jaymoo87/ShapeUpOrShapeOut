@@ -4,10 +4,14 @@
 let shapeContainer = document.getElementById("shapeContainer");
 // variable for all of the buttons that will spawn a new shape.
 let circleButton = document.getElementById("circleButton");
-let squareButton = document.getElementById("#triangleButton");
-let triangleButton = document.getElementById("#triangleButton");
+let squareButton = document.getElementById("squareButton");
+let triangleButton = document.getElementById("triangleButton");
+let rectangleButton = document.getElementById("rectangleButton");
 
 let radiusInput = document.getElementById("radiusInput");
+let sideLengthInput = document.getElementById("squareInput");
+let rectangleHeightInput = document.getElementById("rectangleHeightInput");
+let rectangleWidthInput = document.getElementById("rectangleWidthInput");
 // define and establish maxSize variable
 let maxSize = 600;
 //creates an array to put the generated shapes into
@@ -67,21 +71,41 @@ class Triangle extends Shape {
     this.div.classList.add("triangle");
   }
 }
-class Square extends Shape {
+
+class Rectangle extends Shape {
   constructor(height, width) {
     super(height, width);
+    if (this.height === this.width) {
+      alert("YOU KNOW THIS IS A SQUARE!");
+    } else {
+      this.div.classList.add("rectangle");
+    }
+  }
+}
+class Square extends Shape {
+  constructor(height) {
+    super(height, height);
+    this.width = height;
     this.div.classList.add("square");
     //this.side = side;
   }
-  addSquare() {
-    this.div(this.height, this.height);
-    //
-  }
+  // addSquare() {
+  //   this.div(this.height, this.height);
+  //   //
+  // }
 }
 
 circleButton.addEventListener("click", () => {
   new Circle(radiusInput.value * 2);
-  //shapeContainer.appendChild(newcircle);
 });
+
+squareButton.addEventListener("click", () => {
+  new Square(sideLengthInput.value);
+});
+
+rectangleButton.addEventListener("click", () => {
+  new Rectangle(rectangleHeightInput.value, rectangleWidthInput.value);
+});
+
 //});
 //randomColor;
