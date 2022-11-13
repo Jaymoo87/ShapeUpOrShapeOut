@@ -56,30 +56,7 @@ class Shape {
       // call the randomLocation() to place each shape div randomly in the shapeContainer.
       this.randomLocation();
       this.div.addEventListener("click", () => {
-        shapeData.innerText = `${this.div.className}`;
-        heightData.innerText = `${this.height} Pixels`;
-        widthData.innerText = `${this.width} Pixels`;
-        if (this.div.className === "circle") {
-          radiusData.innerText = `${this.radius} Pixels`;
-          areaData.innerText = `${Math.floor(
-            Math.PI * (`${this.radius}` * `${this.radius}`)
-          )} Pixels`;
-          perimeterData.innerText = `${Math.floor(
-            2 * Math.PI * this.radius
-          )} Pixels`;
-        }
-        if (this.div.className === "triangle") {
-          areaData.innerText = `${Math.floor(
-            (this.width * this.width) / 2
-          )} Pixels`;
-
-          perimeterData.innerText = Math.floor(
-            2 * `${this.width}` + Math.sqrt(2) * `${this.width}`
-          );
-        } else {
-          areaData.innerText = `${this.width}` * `${this.height}`;
-          perimeterData.innerText = `${this.width}` * 2 + `${this.height}` * 2;
-        }
+        this.describe();
       });
       this.div.addEventListener("dblclick", () => {
         this.div.remove();
@@ -90,6 +67,32 @@ class Shape {
   randomLocation() {
     this.div.style.top = `${randomValue(this.height, maxSize)}px`;
     this.div.style.left = `${randomValue(this.width, maxSize)}px`;
+  }
+  describe() {
+    shapeData.innerText = `${this.div.className}`;
+    heightData.innerText = `${this.height} Pixels`;
+    widthData.innerText = `${this.width} Pixels`;
+    if (this.div.className === "circle") {
+      radiusData.innerText = `${this.radius} Pixels`;
+      areaData.innerText = `${Math.floor(
+        Math.PI * (`${this.radius}` * `${this.radius}`)
+      )} Pixels`;
+      perimeterData.innerText = `${Math.floor(
+        2 * Math.PI * this.radius
+      )} Pixels`;
+    }
+    if (this.div.className === "triangle") {
+      areaData.innerText = `${Math.floor(
+        (this.width * this.width) / 2
+      )} Pixels`;
+      //*** had to change syntax... not sure why really
+      perimeterData.innerText = Math.floor(
+        2 * `${this.width}` + Math.sqrt(2) * `${this.width}`
+      );
+    } else {
+      areaData.innerText = `${this.width}` * `${this.height}`;
+      perimeterData.innerText = `${this.width}` * 2 + `${this.height}` * 2;
+    }
   }
 }
 //   describe();
